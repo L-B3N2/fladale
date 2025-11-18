@@ -26,6 +26,6 @@ app.use('/dettaglio-page',express.static(path.join(__dirname,'../dettaglio-page'
 app.use('/password-dimenticata-page',express.static(path.join(__dirname,'../password-dimenticata-page')));
 
 const apiRouter = require('./routes/api');
-app.use('/api', apiRouter);
+app.use('/', apiRouter);
 
 module.exports = app;
