@@ -2,10 +2,6 @@
     "version": 2,
     "rewrites": [
         {
-            "source": "/api/(.*)",
-            "destination": "/fladale-api/server.js"
-        },
-        {
             "source": "/",
             "destination": "/home-page/hp_index.html"
         }
