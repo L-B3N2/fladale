@@ -6,7 +6,7 @@ if (!token) {
     document.querySelector("h1").innerText = "Token mancante!";
     countdownEl.parentElement.innerText = "";
 } else {
-    fetch(`http://localhost:8000/api/attiva-account?token=${token}`)
+    fetch(`/api/attiva-account?token=${token}`)
         .then(res => res.json())
         .then(data => {
             if (!data.message) {

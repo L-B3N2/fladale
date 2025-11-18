@@ -14,7 +14,7 @@ const tagsFromURL = urlParams.get("tags");
 if (tagsFromURL) {
     currentFilters = tagsFromURL.split(",");
 }
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "";
 
 // Funzione globale per leggere i cookie
 function getCookie(name) {

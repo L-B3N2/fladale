@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "";
 
 // controllo login per gestione accedi o profilo
 document.addEventListener("DOMContentLoaded", async () => {

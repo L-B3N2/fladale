@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = form.querySelector('input[name="email"]').value;
 
         try {
-            const res = await fetch("http://localhost:8000/api/password-dimenticata", {
+            const res = await fetch("/api/password-dimenticata", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email })

@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "";
 
 function getCookie(name) {
     const value = `; ${document.cookie}`;
