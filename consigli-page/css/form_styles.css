@@ -1,0 +1,289 @@
+* {
+    user-select: none;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sfondo e font generale della pagina */
+body {
+    font-family: 'Quicksand', sans-serif;
+    width: 100%;
+    background: url(../../immagini_comuni/sfondo.jpeg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Nasconde la scrollbar su Chrome */
+body::-webkit-scrollbar{
+    display: none;
+}
+
+/* Contenitore della card con il form */
+.card {
+    background: whitesmoke;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    box-sizing: border-box;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeInCard 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Wrapper che centra la card verticalmente */
+.form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* Animazione di entrata della card */
+@keyframes fadeInCard {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Bottone di invio */
+button {
+    width: 100%;
+    background: #4CAF50;
+    color: white;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #45a049;
+    transform: scale(1.02);
+}
+
+/* Messaggio di risultato */
+#risultato {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e0ffe0;
+    border-left: 5px solid #4CAF50;
+    display: none;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+/* Indicatore di caricamento */
+#loader {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Nasconde elementi dinamici */
+.hidden {
+    display: none;
+}
+
+select {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: white;
+}
+
+footer {
+  background-color: #6d7a6d;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #fff;
+  border-top: 1px solid #465246;
+  margin-top: auto;
+}
+
+/* --- BARRA SUPERIORE CON LOGO E LOGIN --- */
+.top-section {
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    font-family: Arial, sans-serif;
+}
+.site-name {
+    z-index: 3;
+}
+.site-name img{
+    z-index: 3;
+    max-height: 50px;
+    max-width: 200px;
+}
+.login-button {
+    z-index: 3;
+    padding: 7px 15px;
+    background-color: transparent;
+    color: wheat;
+    border: 3px solid wheat;
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.login-button a {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    color: wheat;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.login-button:hover {
+    background-color: transparent;
+    opacity: 0.5;
+}
+  
+.top-section a {
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.top-section a img {
+    border: none;
+    outline: none;
+}
+  
+.icona-profilo {
+    width: 35px;
+    height: 35px;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+  
+.icona-aggiungi {
+    width: 10px;
+    height: 10px;
+    margin-top: 8px;
+    transition: transform 0.2s ease;
+}
+  
+.icona-aggiungi:hover {
+    transform: scale(1.1);
+}
+
+/* Toast popup per notifiche */
+.toast {
+    position: fixed;
+    bottom: 10%;
+    align-self: center;
+    background-color: #213922; 
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-family: 'Quicksand', sans-serif;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.toast.show {
+    opacity: 1;
+}
+.toast.hidden {
+    display: none;
+}
+
+/* Responsive: logo e layout mobile */
+@media screen and (max-width: 768px) {
+    .top-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+/* Responsive: card e elementi form per schermi piccoli */
+@media screen and (max-width: 600px) {
+  .card {
+    width: 90%;
+    margin: 20px auto;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 100%;
+    height: auto; 
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  select, input, button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  #risultato {
+    font-size: 0.95rem;
+  }
+
+  .login-button {
+    font-size: 0.95rem;
+    padding: 5px 10px;
+  }
+
+  .site-name img {
+    max-width: 150px;
+  }
+
+  .site-name img {
+    max-width: 140px;  /* logo più piccolo su mobile */
+  }
+
+  .login-button {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+  }
+}
