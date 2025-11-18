@@ -474,7 +474,7 @@ router.get('/eventi-annaffiamento', async (req, res) => {
         // Ottieni id utente
         const [utente] = await conn.query('SELECT id FROM utenti WHERE email = ?', [email]);
         if (!utente) {
-            conn.end();
+            conn.release();
             return res.status(404).json({ error: "Utente non trovato" });
         }
 
@@ -507,7 +507,7 @@ router.get('/eventi-annaffiamento', async (req, res) => {
             }
         });
 
-        conn.end();
+        conn.release();
         res.json(eventi);
     } catch (err) {
         console.error("Errore eventi:", err);

@@ -33,3 +33,5 @@ async function getConnection() {
         release: () => conn.release()
     };
 }
+
+module.exports = { query, getConnection };
