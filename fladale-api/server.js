@@ -29,6 +29,5 @@ app.use('/password-dimenticata-page',express.static(path.join(__dirname,'../pass
 app.use('/api', apiRouter);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server attivo su http://localhost:${PORT}`);
-});
+
+module.exports = app;
