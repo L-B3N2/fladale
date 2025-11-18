@@ -26,7 +26,7 @@ async function getConnection() {
     const conn = await pool.getConnection();
 
     return {
-        query: async (sql, params) => {
+        query: async (sql, params = []) => {
             const [rows] = await conn.query(sql, params);
             return rows;
         },

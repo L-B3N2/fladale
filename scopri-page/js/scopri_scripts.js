@@ -14,7 +14,7 @@ const tagsFromURL = urlParams.get("tags");
 if (tagsFromURL) {
     currentFilters = tagsFromURL.split(",");
 }
-const API_BASE_URL = "";
+const API_BASE_URL = "https://fladale.vercel.app";
 
 // Funzione globale per leggere i cookie
 function getCookie(name) {
