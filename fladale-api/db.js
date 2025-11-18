@@ -1,3 +1,4 @@
+// fladale-api/db.js
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 
@@ -11,18 +12,24 @@ const pool = mysql.createPool({
     connectionLimit: 5,
     queueLimit: 0,
     ssl: {
-        rejectUnauthorized: false  // Necessario per Aiven se non usi i certificati
+        rejectUnauthorized: false   // per Aiven ok
     }
 });
 
-// Test connessione
-pool.getConnection()
-    .then(conn => {
-        console.log(`Connesso al DB Aiven su: ${process.env.DB_HOST}`);
-        conn.release();
-    })
-    .catch(err => {
-        console.error("ERRORE CONNESSIONE DB:", err);
-    });
+// Funzione helper: stessa interfaccia che avevi con mariadb
+async function query(sql, params) {
+    const [rows] = await pool.query(sql, params);
+    return rows; // così db.query restituisce direttamente le righe
+}
 
-module.exports = pool;
+async function getConnection() {
+    const conn = await pool.getConnection();
+
+    return {
+        query: async (sql, params) => {
+            const [rows] = await conn.query(sql, params);
+            return rows;
+        },
+        release: () => conn.release()
+    };
+}
